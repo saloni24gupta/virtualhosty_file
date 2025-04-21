@@ -1,0 +1,31 @@
+server {
+listen 80;
+server_name dev.cladev.com;
+root  /var/www/html;
+index index.php index.html index.htm;
+#charset koi8-r;
+access_log /var/log/nginx/cladev_access_log;
+error_log   /var/log/nginx/cladev_error_log error;
+
+#location /public_new/ {                                                         
+#root /root/myproject/index.php;
+#autoindex on;
+#}
+
+#location / {
+try_files $uri  /index.php$query_string;
+#autoindex on;
+#}
+# pass the PHP scripts to FastCGI server listening on 127.0.0.1:7000
+location  / {
+
+root /root/myproject/index.php;
+fastcgi_pass   127.0.0.1:9000;  #set port for php-fpm to listen on
+fastcgi_index  index.php;
+fastcgi_param  SCRIPT_FILENAME  $document_root$fastcgi_script_name;
+fastcgi_read_timeout 300;
+
+include         fastcgi_params;
+include /etc/nginx/fastcgi_params;
+}
+}
