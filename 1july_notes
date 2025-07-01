@@ -1,0 +1,46 @@
+grep -i ^bob /etc/passwd
+/bob:x:1001:1001::/home/bob:/bin/bash
+
+grep -i ^bob /etc/shadow
+/bob:enryptedpassword
+sudo grep ^bob /etc/sudoers
+
+grep -i ^bob /etc/group
+developer:x:1001:bob,michecl
+
+id
+uid gid groups 1009 -g 1009 -d /home/robert -s /bin/bash -c "Merury Project member" bob
+sudo groupadd -g 1010 john
+sudo useradd -u 1010 -g 1010 -s /bin/sh john
+useradd -u
+
+caleston123
+Run: sudo grep bob /etc/sudoers. Bob has ALL permissions (4th field)
+
+
+chmod u+rwx //provied rwx permission to user
+chmod ugo+r-w //provde read per and remove write
+chmod o-rwx //remove all access to others
+chmod u+rwx, g+r-x, o-rwx //
+
+chown owner:group file
+chown bob:Developer file  //change owner to bob and group developer
+chown bob android.ak // cange only owner
+chgrp android file //change the group for the test-fsudo chown -R mercury /home/bob/sports
+
+ssh-keygen
+ssh-copy-id bob@devapp01
+ssh devapp01
+scp /home/bob/caleston-code.tar.gz devapp01:/home/bob
+scp /home/bobcaleston-code.tar.gz devapp01:/root
+scp -pr /home/bob/media/ devapp01:/home/bob
+If no user is specified with the ssh command, the connection will be attempted with the logged-in user which is bob
+ssh-keygen -t rsa
+ssh-copy-id bob@devapp01
+
+ssh-copy-id bob@devapp01
+scp /home/bob/caleston-code.tar.gz devapp01:/home/bob
+
+/etc/hosts
+cat /etc/resolv.conf
+https://github.com/kodekloudhub/aws-rds
