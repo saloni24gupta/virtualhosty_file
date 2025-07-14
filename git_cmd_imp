@@ -1,1 +1,11 @@
 git update-ref -d HEAD
+git log
+//info
+You can list the changed files as well using the --name-only option with the git log command
+
+Run the command git log --name-only
+
+# git log --name-only
+
+Go to cd /home/sarah/learning-app-ecommerce and run git log -n 1
+ git log -n 1 //to check lastest commit
