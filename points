@@ -1,0 +1,19 @@
+ mkdir /home/h
+sudo chown alice:alice /home/h
+sudo chmod 750 /home/h 
+su - alice
+cd /home/h
+mkdir test
+
+sudo adduser alice
+sudo usermod -aG sudo alice
+groups alice
+su - alice
+sudo whoami
+su - alice
+sudo apt update
+sudo apt install python3-pip python3-venv python3-dev build-essential libssl-dev libffi-dev nginx
+mkdir ~/myproject && cd ~/myproject
+python3 -m venv venv
+source venv/bin/activate
+pip install wheel gunicorn flask
