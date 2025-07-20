@@ -122,6 +122,7 @@ server {
     error_log  /var/log/nginx/saloni_error.log;
 }
 
-
+sudo chown root:www-data /etc/ssl/private/server.key
+sudo chmod 640 /etc/ssl/private/server.key
 
     
