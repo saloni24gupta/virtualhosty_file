@@ -20,6 +20,13 @@ python manage.py createsuperuser
 
   4. Test Gunicorn
 gunicorn --bind 0.0.0.0:8000 myproject.wsgi:application
+
+Edit your settings.py:
+ALLOWED_HOSTS = [
+    '13.200.215.11',     # your server's IP (without :8000)
+    'localhost',
+    '127.0.0.1',
+]
    5. Create systemd Service
 /etc/systemd/system/gunicorn.service
 //vim /etc/systemd/system/gunicorn.service
@@ -62,6 +69,8 @@ WantedBy=multi-user.target
     error_log  /var/log/nginx/saloni_error.log;
 }
 
+change //settings.py to domail name
+saloni.cladev.com
 
 sudo chmod o+x /home/django_user /home/django_user/myproject
 sudo chmod -R 755 /home/django_user/myproject/static
