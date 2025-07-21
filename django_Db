@@ -1,0 +1,44 @@
+DNS mapping	✅
+Nginx reverse proxy	✅
+Gunicorn	✅
+Django	✅
+HTTPS	✅ Self-signed (can be improved with Let’s Encrypt)
+ping from local saloni.cladev.com
+✅ Nginx is correctly serving your Django app via Gunicorn.
+
+✅ HTTPS is working with a valid SSL handshake (self-signed).
+
+✅ Your DNS is pointed correctly.
+
+✅ No firewall/Security Group issues remain.
+
+ 1. Install MySQL client and Python driver
+pip install mysqlclient
+🛠️ 2. Update settings.py in Django project
+Edit myproject/settings.py:
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'myproject_db',
+        'USER': 'django_user',
+        'PASSWORD': 'tech',
+        'HOST': '127.0.0.1',   # or the remote DB IP
+        'PORT': '3306',
+        'OPTIONS': {
+            'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
+        },
+    }
+}
+
+ 3. Test MySQL Connection
+python manage.py dbshell
+sudo mysql
+CREATE DATABASE myproject_db CHARACTER SET UTF8;
+CREATE USER 'django_user'@'localhost' IDENTIFIED BY 'tech';
+GRANT ALL PRIVILEGES ON myproject_db.* TO 'django_user'@'localhost';
+FLUSH PRIVILEGES;
+EXIT;
+python manage.py migrate
+✅ Method 1: Use Django Admin
+Create superuser (if not done):
+python manage.py createsuperuser
